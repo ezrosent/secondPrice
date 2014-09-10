@@ -11,3 +11,10 @@ Agent Based Modeling Approach'' by Akkaya et. al.
 This is far from completion, and is certainly at the pre-alpha stage.
 Ideally it will later be extended to use more of D's threading features
 and support for EDSLs as well.
+
+The "iteratedPrison" directory is a more complete version of a simple
+iterated prisoners dilema evolutionary agent-based model (complete with
+a python script for graphing output). It demonstrates the general
+interface I would like to have from this project, also the IO threading
+is fully functional as no delegates have to be passed in that
+implementation.
