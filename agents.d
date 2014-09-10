@@ -20,10 +20,10 @@ class S5: Agent {
   // coefficients for the weighted moving average
   enum x = 0.7, y = 0.2, z = 0.1;
 
-	invariant() { assert(_prevBids.length == 5); }
+  invariant() { assert(_prevBids.length == 5); }
 
   override protected double nextBid(Information info) {
-		auto diff = (int a, int b) {return _prevBids[a] - _prevBids[b];};
+    auto diff = (int a, int b) {return _prevBids[a] - _prevBids[b];};
 /*    double diff(int a, int b) {*/
       //return _prevBids[a] - _prevBids[b];
     //}
@@ -70,7 +70,7 @@ class S2 : Agent {
   this (int id) { super(id);}
 
   override protected double nextBid(Information info) {
-		return (info.winningBid.val + uniform(0.0,range));
+    return (info.winningBid.val + uniform(0.0,range));
   }
 }
 
@@ -92,28 +92,28 @@ class Agent  {
 
   this(int id) {
     ID = id;
-		reset();
+    reset();
   }
 
-	private void reset() {
-		_prevBid = new NullBid;
-	}
+  private void reset() {
+    _prevBid = new NullBid;
+  }
 
-	public Bid getInfo(Information info) {
-		if (info.infoT == InfoType.start) {
-			reset();
-		}
-		return ReturnBid(nextBid(info));
-	}
+  public Bid getInfo(Information info) {
+    if (info.infoT == InfoType.start) {
+      reset();
+    }
+    return ReturnBid(nextBid(info));
+  }
 
-	private Bid ReturnBid(double newVal) {
-		if (utility(newVal) < 0) {
-			_prevBid = new NullBid();
-		} else {
-			_prevBid = new RealBid(newVal);
-		}
-		return _prevBid;
-	}
+  private Bid ReturnBid(double newVal) {
+    if (utility(newVal) < 0) {
+      _prevBid = new NullBid();
+    } else {
+      _prevBid = new RealBid(newVal);
+    }
+    return _prevBid;
+  }
 
   protected abstract double nextBid(Information info);
 
