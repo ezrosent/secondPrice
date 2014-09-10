@@ -1,6 +1,10 @@
 import std.conv, std.random;
 import infrastructure;
-
+/**
+ * This module implements the various strategies mentioned in the paper and is
+ * named accordingly. These may be renamed later, but the short names make
+ * passing them to template functions easier
+ */
 
 class S6 : Agent {
   this (int id) { super (id); }
